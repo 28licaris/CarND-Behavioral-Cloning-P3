@@ -240,7 +240,8 @@ def main():
 
     # Split data into training and validation sets
     train_samples, validation_samples = train_test_split(samples, test_size=0.2, random_state=832289)
-
+    
+    # Let start parallel processing with Ray!
     for sample in train_samples:
         augmented_data.append(image_preprocess.remote(sample, validation_flag=False))
 
